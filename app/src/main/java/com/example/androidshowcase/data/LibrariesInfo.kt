@@ -18,4 +18,8 @@ val materialComponents = listOf(
     "TextFields"
 )
 
-val libraries: Map<String, List<String>> = mapOf("Material" to materialComponents)
+val progressBarComponents = listOf(
+    "SmoothProgressBar"
+)
+
+val libraries: Map<String, List<String>> = mapOf("Material" to materialComponents,"Progress Bar" to progressBarComponents)
