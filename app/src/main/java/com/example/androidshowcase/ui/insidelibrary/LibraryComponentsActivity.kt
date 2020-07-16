@@ -9,6 +9,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.androidshowcase.R
 import com.example.androidshowcase.data.libraries
 import com.example.androidshowcase.databinding.ActivityLibraryComponentsBinding
+import com.example.androidshowcase.ui.libraries.SmoothProgressBarActivity
 import com.example.androidshowcase.ui.notadded.ComponentNotAddedActivity
 
 class LibraryComponentsActivity : AppCompatActivity() {
@@ -53,6 +54,14 @@ class LibraryComponentsActivity : AppCompatActivity() {
                         else -> ComponentNotAddedActivity.start(this, component)
                     }
                 }
+                "Progress Bar" -> {
+                    when(component){
+                        "SmoothProgressBar" -> SmoothProgressBarActivity.start(this)
+
+                        else -> ComponentNotAddedActivity.start(this, component)
+                    }
+                }
+
                 else -> ComponentNotAddedActivity.start(this, component)
             }
         }
