@@ -10,8 +10,11 @@ import com.example.androidshowcase.R
 class ComponentNotAddedActivity : AppCompatActivity() {
 
     companion object {
-        fun start(context: Context) {
+        private const val COMPONENT_NAME = "COMPONENT_NAME"
+
+        fun start(context: Context, componentName: String) {
             val intent = Intent(context, ComponentNotAddedActivity::class.java)
+            intent.putExtra(COMPONENT_NAME, componentName)
             context.startActivity(intent)
         }
     }
@@ -19,7 +22,7 @@ class ComponentNotAddedActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_component_not_added)
-        supportActionBar?.title = "Not Added"
+        supportActionBar?.title = intent.getStringExtra(COMPONENT_NAME)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
     }
 

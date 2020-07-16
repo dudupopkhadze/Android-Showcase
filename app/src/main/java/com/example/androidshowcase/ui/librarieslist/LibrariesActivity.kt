@@ -1,8 +1,7 @@
 package com.example.androidshowcase.ui.librarieslist
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
+import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.androidshowcase.databinding.ActivityLibrariesBinding
 import com.example.androidshowcase.ui.insidelibrary.LibraryComponentsActivity
@@ -19,8 +18,8 @@ class LibrariesActivity : AppCompatActivity() {
 
 
         adapter = LibrariesRecyclerAdapter()
-        adapter.itemClickedListener = {position ->
-            LibraryComponentsActivity.start(this, position)
+        adapter.itemClickedListener = {libraryName ->
+            LibraryComponentsActivity.start(this, libraryName)
         }
         binding.recyclerViewLibraries.layoutManager = LinearLayoutManager(this)
         binding.recyclerViewLibraries.adapter = adapter

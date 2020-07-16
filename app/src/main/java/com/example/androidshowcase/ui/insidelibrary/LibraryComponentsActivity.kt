@@ -7,26 +7,25 @@ import android.os.Bundle
 import android.view.MenuItem
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.androidshowcase.R
-import com.example.androidshowcase.data.librariesComponentsList
-import com.example.androidshowcase.data.librariesNameList
+import com.example.androidshowcase.data.libraries
 import com.example.androidshowcase.databinding.ActivityLibraryComponentsBinding
 import com.example.androidshowcase.ui.notadded.ComponentNotAddedActivity
 
 class LibraryComponentsActivity : AppCompatActivity() {
 
     companion object {
-        private const val LIBRARY_POSITION = "LIBRARY_POSITION"
+        private const val LIBRARY_NAME = "LIBRARY_POSITION"
 
-        fun start(context: Context, position: Int) {
+        fun start(context: Context, libraryName: String) {
             val intent = Intent(context, LibraryComponentsActivity::class.java)
-            intent.putExtra(LIBRARY_POSITION, position)
+            intent.putExtra(LIBRARY_NAME, libraryName)
             context.startActivity(intent)
         }
     }
 
     private lateinit var binding: ActivityLibraryComponentsBinding
     private lateinit var adapter: ComponentsRecyclerAdapter
-    private var libraryId = 0
+    private var libraryName: String? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -36,7 +35,7 @@ class LibraryComponentsActivity : AppCompatActivity() {
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
         supportActionBar?.title = getString(R.string.components)
 
-        libraryId = intent.getIntExtra(LIBRARY_POSITION, -1)
+        libraryName = intent.getStringExtra(LIBRARY_NAME)
 
         setupAdapter()
         binding.recyclerViewComponents.layoutManager = LinearLayoutManager(this)
@@ -45,16 +44,16 @@ class LibraryComponentsActivity : AppCompatActivity() {
 
     private fun setupAdapter() {
         adapter = ComponentsRecyclerAdapter()
-        adapter.setData(librariesComponentsList[libraryId])
-        adapter.itemClickedListener = { position ->
-            when(librariesNameList[libraryId]) {
+        adapter.setData(libraries[libraryName]!!)
+        adapter.itemClickedListener = { component ->
+            when(libraryName) {
                 "Material" -> {
-                    when(librariesComponentsList[libraryId][position]) {
+                    when(component) {
 
-                        else -> ComponentNotAddedActivity.start(this)
+                        else -> ComponentNotAddedActivity.start(this, component)
                     }
                 }
-                else -> ComponentNotAddedActivity.start(this)
+                else -> ComponentNotAddedActivity.start(this, component)
             }
         }
     }

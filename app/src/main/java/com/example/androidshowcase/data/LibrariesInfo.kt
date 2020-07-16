@@ -1,7 +1,5 @@
 package com.example.androidshowcase.data
 
-val librariesNameList = listOf("Material")
-
 val materialComponents = listOf(
     "App bars",
     "Bottom navigation",
@@ -20,6 +18,4 @@ val materialComponents = listOf(
     "TextFields"
 )
 
-val librariesComponentsList = listOf(materialComponents)
-
-
+val libraries: Map<String, List<String>> = mapOf("Material" to materialComponents)

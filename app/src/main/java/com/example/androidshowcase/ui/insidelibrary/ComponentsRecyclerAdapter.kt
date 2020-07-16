@@ -9,7 +9,7 @@ import com.example.androidshowcase.R
 
 class ComponentsRecyclerAdapter : RecyclerView.Adapter<ComponentsRecyclerAdapter.ViewHolder>() {
     private var componentsList = listOf<String>()
-    var itemClickedListener: ((position: Int) -> Unit)? = null
+    var itemClickedListener: ((component: String) -> Unit)? = null
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val view = LayoutInflater.from(parent.context).inflate(R.layout.view_library_cell, parent, false)
@@ -34,7 +34,7 @@ class ComponentsRecyclerAdapter : RecyclerView.Adapter<ComponentsRecyclerAdapter
 
         init {
             itemView.setOnClickListener {
-                itemClickedListener?.invoke(adapterPosition)
+                itemClickedListener?.invoke(componentsList[adapterPosition])
             }
         }
 
