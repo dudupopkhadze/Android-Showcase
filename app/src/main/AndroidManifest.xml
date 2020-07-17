@@ -11,7 +11,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="AllowBackup">
-        <activity android:name=".ui.libraries.SmoothProgressBarActivity" />
+        <activity android:name=".ui.libraries.progressBars.SmoothProgressBarActivity" />
         <activity android:name=".ui.notadded.ComponentNotAddedActivity" />
         <activity android:name=".ui.insidelibrary.LibraryComponentsActivity" />
         <activity android:name=".ui.librarieslist.LibrariesActivity">

@@ -1,13 +1,10 @@
-package com.example.androidshowcase.ui.libraries
+package com.example.androidshowcase.ui.libraries.progressBars
 
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
-import android.view.animation.DecelerateInterpolator
 import androidx.appcompat.app.AppCompatActivity
 import com.example.androidshowcase.R
-import fr.castorflex.android.smoothprogressbar.SmoothProgressBar
-import fr.castorflex.android.smoothprogressbar.SmoothProgressDrawable
 
 
 class SmoothProgressBarActivity : AppCompatActivity() {
