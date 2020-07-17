@@ -39,5 +39,6 @@ dependencies {
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
     implementation 'com.github.castorflex.smoothprogressbar:library:1.1.0'
     implementation 'com.google.android.material:material:1.1.0'
+    implementation 'org.adw.library:discrete-seekbar:1.0.1'
 
 }
