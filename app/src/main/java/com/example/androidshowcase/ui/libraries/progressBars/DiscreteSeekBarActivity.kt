@@ -10,7 +10,7 @@ class DiscreteSeekBarActivity : AppCompatActivity() {
 
     companion object {
         fun start(context: Context) {
-            val intent = Intent(context, SmoothProgressBarActivity::class.java)
+            val intent = Intent(context, DiscreteSeekBarActivity::class.java)
             context.startActivity(intent)
         }
     }
