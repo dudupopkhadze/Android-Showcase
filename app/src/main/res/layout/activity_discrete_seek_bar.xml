@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.libraries.progressBars.DiscreteSeekBarActivity">
+    tools:context=".ui.libraries.seekBars.DiscreteSeekBarActivity">
 
     <org.adw.library.widgets.discreteseekbar.DiscreteSeekBar
         android:layout_width="match_parent"

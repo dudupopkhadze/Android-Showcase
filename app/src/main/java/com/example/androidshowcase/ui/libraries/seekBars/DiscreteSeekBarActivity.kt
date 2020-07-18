@@ -1,4 +1,4 @@
-package com.example.androidshowcase.ui.libraries.progressBars
+package com.example.androidshowcase.ui.libraries.seekBars
 
 import android.content.Context
 import android.content.Intent

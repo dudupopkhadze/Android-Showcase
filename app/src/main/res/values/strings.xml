@@ -1,6 +1,17 @@
 <resources>
-    <string name="app_name">Libraries</string>
+    <string name="app_name">Android Showcase</string>
     <string name="library_name">%s components</string>
     <string name="not_added">Unfortunately this component hasn\'t been added yet</string>
     <string name="components">Components</string>
+    <string name="text_button">Text Button</string>
+    <string name="outlined_button">Outlined Button</string>
+    <string name="contained_button">Contained Button</string>
+    <string name="title">Title</string>
+    <string name="add_icon">Add Icon</string>
+    <string name="remove_icon">Remove Icon</string>
+    <string name="second">Second</string>
+    <string name="first">First</string>
+    <string name="third">Third</string>
+    <string name="single_selecting">Single Selecting</string>
+    <string name="extended">Extended</string>
 </resources>

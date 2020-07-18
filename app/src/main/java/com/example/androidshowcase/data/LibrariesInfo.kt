@@ -1,7 +1,5 @@
 package com.example.androidshowcase.data
 
-import com.example.androidshowcase.ui.libraries.progressBars.DiscreteSeekBarActivity
-
 val materialComponents = listOf(
     "App bars",
     "Bottom navigation",
@@ -21,7 +19,8 @@ val materialComponents = listOf(
 )
 
 val progressBarComponents = listOf(
-    "SmoothProgressBar"
+    "SmoothProgressBar",
+    "CircularProgressBar"
 )
 
 val seekBarComponents = listOf(
