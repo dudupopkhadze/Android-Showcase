@@ -11,6 +11,7 @@ import com.example.androidshowcase.data.libraries
 import com.example.androidshowcase.databinding.ActivityLibraryComponentsBinding
 import com.example.androidshowcase.ui.libraries.material.button.MaterialButtonsActivity
 import com.example.androidshowcase.ui.libraries.progressBars.CircularProgressBarActivity
+import com.example.androidshowcase.ui.libraries.progressBars.NumberProgressBarActivity
 import com.example.androidshowcase.ui.libraries.seekBars.DiscreteSeekBarActivity
 import com.example.androidshowcase.ui.libraries.progressBars.SmoothProgressBarActivity
 import com.example.androidshowcase.ui.notadded.ComponentNotAddedActivity
@@ -62,7 +63,7 @@ class LibraryComponentsActivity : AppCompatActivity() {
                     when (component) {
                         "SmoothProgressBar" -> SmoothProgressBarActivity.start(this,component)
                         "CircularProgressBar" -> CircularProgressBarActivity.start(this,component)
-
+                        "NumberProgressBar" -> NumberProgressBarActivity.start(this,component)
                         else -> ComponentNotAddedActivity.start(this, component)
                     }
                 }

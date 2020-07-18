@@ -11,7 +11,8 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="AllowBackup">
-        <activity android:name=".ui.libraries.material.button.MaterialButtonsActivity"></activity>
+        <activity android:name=".ui.libraries.progressBars.NumberProgressBarActivity"></activity>
+        <activity android:name=".ui.libraries.material.button.MaterialButtonsActivity" />
         <activity android:name=".ui.libraries.progressBars.CircularProgressBarActivity" />
         <activity android:name=".ui.libraries.seekBars.DiscreteSeekBarActivity" />
         <activity android:name=".ui.libraries.progressBars.SmoothProgressBarActivity" />

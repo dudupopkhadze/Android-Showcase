@@ -20,7 +20,8 @@ val materialComponents = listOf(
 
 val progressBarComponents = listOf(
     "SmoothProgressBar",
-    "CircularProgressBar"
+    "CircularProgressBar",
+    "NumberProgressBar"
 )
 
 val seekBarComponents = listOf(
