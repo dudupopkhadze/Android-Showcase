@@ -2,11 +2,9 @@ package com.example.androidshowcase.ui.libraries.progressBars
 
 import android.content.Context
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.appcompat.app.AppCompatActivity
 import com.example.androidshowcase.R
-import fr.castorflex.android.circularprogressbar.CircularProgressBar
-import fr.castorflex.android.circularprogressbar.CircularProgressDrawable
 
 class CircularProgressBarActivity : AppCompatActivity() {
     companion object {

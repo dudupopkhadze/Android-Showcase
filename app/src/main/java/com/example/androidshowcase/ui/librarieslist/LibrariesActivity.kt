@@ -16,6 +16,7 @@ class LibrariesActivity : AppCompatActivity() {
         binding = ActivityLibrariesBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        supportActionBar?.title = "Libraries"
 
         adapter = LibrariesRecyclerAdapter()
         adapter.itemClickedListener = {libraryName ->

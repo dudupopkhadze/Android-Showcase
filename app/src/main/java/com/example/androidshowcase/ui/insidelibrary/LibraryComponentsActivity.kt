@@ -9,6 +9,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.androidshowcase.R
 import com.example.androidshowcase.data.libraries
 import com.example.androidshowcase.databinding.ActivityLibraryComponentsBinding
+import com.example.androidshowcase.ui.libraries.material.button.MaterialButtonsActivity
 import com.example.androidshowcase.ui.libraries.progressBars.CircularProgressBarActivity
 import com.example.androidshowcase.ui.libraries.seekBars.DiscreteSeekBarActivity
 import com.example.androidshowcase.ui.libraries.progressBars.SmoothProgressBarActivity
@@ -49,16 +50,16 @@ class LibraryComponentsActivity : AppCompatActivity() {
         adapter = ComponentsRecyclerAdapter()
         adapter.setData(libraries[libraryName]!!)
         adapter.itemClickedListener = { component ->
-            when(libraryName) {
+            when (libraryName) {
                 "Material" -> {
-                    when(component) {
-
+                    when (component) {
+                        "Buttons" -> MaterialButtonsActivity.start(this)
                         else -> ComponentNotAddedActivity.start(this, component)
                     }
                 }
 
                 "Progress Bar" -> {
-                    when(component){
+                    when (component) {
                         "SmoothProgressBar" -> SmoothProgressBarActivity.start(this)
                         "CircularProgressBar" -> CircularProgressBarActivity.start(this)
 
@@ -67,7 +68,7 @@ class LibraryComponentsActivity : AppCompatActivity() {
                 }
 
                 "Seek Bar" -> {
-                    when(component){
+                    when (component) {
                         "DiscreteSeekBar" -> DiscreteSeekBarActivity.start(this)
 
                         else -> ComponentNotAddedActivity.start(this, component)
@@ -80,7 +81,7 @@ class LibraryComponentsActivity : AppCompatActivity() {
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        when(item.itemId) {
+        when (item.itemId) {
             android.R.id.home -> onBackPressed()
         }
         return super.onOptionsItemSelected(item)
