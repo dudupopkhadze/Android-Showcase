@@ -60,8 +60,8 @@ class LibraryComponentsActivity : AppCompatActivity() {
 
                 "Progress Bar" -> {
                     when (component) {
-                        "SmoothProgressBar" -> SmoothProgressBarActivity.start(this)
-                        "CircularProgressBar" -> CircularProgressBarActivity.start(this)
+                        "SmoothProgressBar" -> SmoothProgressBarActivity.start(this,component)
+                        "CircularProgressBar" -> CircularProgressBarActivity.start(this,component)
 
                         else -> ComponentNotAddedActivity.start(this, component)
                     }
