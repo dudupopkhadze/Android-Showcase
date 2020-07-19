@@ -15,7 +15,7 @@ import kotlinx.coroutines.launch
 abstract class ShowcaseDatabase : RoomDatabase() {
     companion object {
         private lateinit var showcaseDatabase: ShowcaseDatabase
-        var initialized: Boolean = false
+        private var initialized: Boolean = false
 
         private fun fillUpDatabase() {
             val componentsDao = showcaseDatabase.getComponentsDao()

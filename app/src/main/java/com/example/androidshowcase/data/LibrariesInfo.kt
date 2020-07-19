@@ -31,4 +31,7 @@ val libraries: Map<String, List<String>> = mapOf("Material" to materialComponent
         "Progress Bar" to progressBarComponents,
         "Seek Bar" to seekBarComponents)
 
+val componentsToClasses: Map<String, String> = mapOf("SmoothProgressBar" to "com.example.androidshowcase.ui.libraries.progressBars.SmoothProgressBarActivity",
+        "CircularProgressBar" to "com.example.androidshowcase.ui.libraries.progressBars.CircularProgressBarActivity",
+        "DiscreteSeekBar" to "com.example.androidshowcase.ui.libraries.seekBars.DiscreteSeekBarActivity")
 val markings: List<String> = listOf("pin")
