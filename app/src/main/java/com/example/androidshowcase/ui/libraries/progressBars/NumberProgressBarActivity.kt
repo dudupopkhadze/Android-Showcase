@@ -12,23 +12,22 @@ import com.example.androidshowcase.R
 import java.util.*
 
 class NumberProgressBarActivity : AppCompatActivity(),OnProgressBarListener {
-    lateinit var bnp:NumberProgressBar;
-    lateinit var rpb:NumberProgressBar;
-    lateinit var timer:Timer
+    private  val componentName = "NumberProgressBar"
+
+    lateinit var bnp:NumberProgressBar
+    lateinit var rpb:NumberProgressBar
+    private lateinit var timer:Timer
 
     companion object {
-        private const val COMPONENT_NAME = "COMPONENT_NAME"
-
-        fun start(context: Context, componentName:String) {
+        fun start(context: Context) {
             val intent = Intent(context, NumberProgressBarActivity::class.java)
-            intent.putExtra(COMPONENT_NAME, componentName)
             context.startActivity(intent)
         }
     }
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_number_progress_bar)
-        supportActionBar?.title = intent.getStringExtra(COMPONENT_NAME)
+        supportActionBar?.title = componentName
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
         bnp = findViewById<NumberProgressBar>(R.id.number_progress_bar)
         rpb = findViewById<NumberProgressBar>(R.id.number_progress_bar_red)
@@ -59,9 +58,9 @@ class NumberProgressBarActivity : AppCompatActivity(),OnProgressBarListener {
 
     override fun onProgressChange(current: Int, max: Int) {
         if(current == max) {
-            Toast.makeText(applicationContext, getString(R.string.finished), Toast.LENGTH_SHORT).show();
-            bnp.progress = 0;
-            rpb.progress = 0;
+            Toast.makeText(applicationContext, getString(R.string.finished), Toast.LENGTH_SHORT).show()
+            bnp.progress = 0
+            rpb.progress = 0
         }
     }
 }
