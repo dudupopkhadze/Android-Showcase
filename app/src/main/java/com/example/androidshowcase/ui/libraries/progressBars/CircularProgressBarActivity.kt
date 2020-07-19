@@ -9,17 +9,12 @@ import com.example.androidshowcase.R
 import com.example.androidshowcase.ui.ComponentActivity
 
 class CircularProgressBarActivity : AppCompatActivity(), ComponentActivity {
-    private val COMPONENT_NAME = "COMPONENT_NAME"
+    private val componentName = "CircularProgressBar"
 
-    fun start(context: Context,componentName:String) {
-        val intent = Intent(context, CircularProgressBarActivity::class.java)
-        intent.putExtra(COMPONENT_NAME, componentName)
-        context.startActivity(intent)
-    }
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_circular_progress_bar)
-        supportActionBar?.title = intent.getStringExtra(COMPONENT_NAME)
+        supportActionBar?.title = componentName
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
     }
 
@@ -32,7 +27,6 @@ class CircularProgressBarActivity : AppCompatActivity(), ComponentActivity {
 
     override fun start(context: Context) {
         val intent = Intent(context, CircularProgressBarActivity::class.java)
-        intent.putExtra(COMPONENT_NAME, componentName)
         context.startActivity(intent)
     }
 

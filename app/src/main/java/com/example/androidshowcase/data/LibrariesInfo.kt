@@ -2,6 +2,7 @@ package com.example.androidshowcase.data
 
 import com.example.androidshowcase.ui.ComponentActivity
 import com.example.androidshowcase.ui.libraries.material.button.MaterialButtonsActivity
+import com.example.androidshowcase.ui.libraries.material.textfield.MaterialTextFieldActivity
 import com.example.androidshowcase.ui.libraries.progressBars.CircularProgressBarActivity
 import com.example.androidshowcase.ui.libraries.progressBars.NumberProgressBarActivity
 import com.example.androidshowcase.ui.libraries.progressBars.SmoothProgressBarActivity
@@ -40,6 +41,7 @@ val libraries: Map<String, List<String>> = mapOf("Material" to materialComponent
         "Seek Bar" to seekBarComponents)
 
 val componentsToClasses: Map<String, ComponentActivity> = mapOf("Buttons" to MaterialButtonsActivity(),
+        "TextFields" to MaterialTextFieldActivity(),
         "SmoothProgressBar" to SmoothProgressBarActivity(),
         "CircularProgressBar" to CircularProgressBarActivity(),
         "DiscreteSeekBar" to DiscreteSeekBarActivity(),
