@@ -15,10 +15,10 @@ interface ComponentMarkingsDao {
 //    @Query("select * from component_Markings where id = :componentMarkingId limit 1")
 //    fun getComponentMarking(componentMarkingId: Int): ComponentMarking
 
-    @Query("select * from component_markings cm join components c on c.name = :componentName and c.id = cm.componentId where cm.markingId = 1")
+    @Query("select cm.* from component_markings cm join components c on c.name = :componentName and c.id = cm.componentId where cm.markingId = 1")
     fun getComponentPositiveMarkings(componentName: String): List<ComponentMarking>
 
-    @Query("select * from component_Markings cm join components c on c.name = :componentName and c.id = cm.componentId where cm.markingId = 2")
+    @Query("select cm.* from component_Markings cm join components c on c.name = :componentName and c.id = cm.componentId where cm.markingId = 2")
     fun getComponentNegativeMarkings(componentName: String): List<ComponentMarking>
 
     @Insert

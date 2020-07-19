@@ -8,6 +8,7 @@ import com.example.androidshowcase.database.entities.Library
 
 @Dao
 interface LibrariesDao {
+
     @Query("select * from libraries")
     fun getAllLibraries(): List<Library>
 
@@ -16,6 +17,13 @@ interface LibrariesDao {
 
     @Insert
     fun insertLibrary(library: Library)
+
+    @Query("select * from libraries where name = :libraryName limit 1")
+    fun getLibraryByName(libraryName : String) : Library
+
+
+    @Query("select 1 from libraries where name = :libraryName limit 1")
+    fun libraryExists(libraryName : String) : Boolean
 
     @Delete
     fun deleteLibrary(library: Library)

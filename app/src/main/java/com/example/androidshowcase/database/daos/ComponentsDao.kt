@@ -15,6 +15,9 @@ interface ComponentsDao {
     @Query("select * from components where id = :componentId limit 1")
     fun getComponent(componentId: Int): Component
 
+    @Query("select 1 from components where name = :componentName limit 1")
+    fun componentExists(componentName: String): Boolean
+
     @Insert
     fun insertComponent(component: Component)
 
