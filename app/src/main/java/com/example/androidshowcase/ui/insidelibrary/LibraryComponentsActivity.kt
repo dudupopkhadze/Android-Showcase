@@ -59,6 +59,9 @@ class LibraryComponentsActivity : AppCompatActivity() {
             adapter.itemClickedListener = { component ->
                 run {
                     try {
+                        if(!componentsToClasses.containsKey(component)){
+                            throw Exception("Component Not Added")
+                        }
                         componentsToClasses[component]?.start(context)
                     } catch (e: Exception) {
                         ComponentNotAddedActivity.start(context, component)
