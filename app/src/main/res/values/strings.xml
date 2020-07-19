@@ -21,4 +21,15 @@
     <string name="password_mode">Password Mode</string>
     <string name="clear_text_mode">Clear Text Mode</string>
     <string name="custom_icon_mode">Custom Icon Mode</string>
+    <string name="helper_text">Helper Text</string>
+    <string name="change_helper">Change Helper</string>
+    <string name="change_counter">Change Counter</string>
+    <string name="error">Error</string>
+    <string name="counter">Max Counter</string>
+    <string name="suffix">Suffix</string>
+    <string name="prefix">Prefix</string>
+    <string name="clear_mode">Clear Mode</string>
+    <string name="outlined_text_field">Outlined Text Field</string>
+    <string name="filled_text_field">Filled Text Field</string>
+    <string name="hint">Hint</string>
 </resources>

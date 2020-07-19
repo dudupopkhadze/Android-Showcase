@@ -8,10 +8,13 @@ import com.example.androidshowcase.R
 import com.example.androidshowcase.ui.ComponentActivity
 
 class DiscreteSeekBarActivity : AppCompatActivity(), ComponentActivity {
+    private val componentName = "DiscreteSeekBar"
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_discrete_seek_bar)
+        supportActionBar?.title = componentName
+        supportActionBar?.setDisplayHomeAsUpEnabled(true)
     }
 
     override fun start(context: Context) {

@@ -53,7 +53,7 @@ class LibraryComponentsActivity : AppCompatActivity() {
         val showcaseDatabase = ShowcaseDatabase.getInstance(this)
         GlobalScope.launch {
             val componentsDao = showcaseDatabase.getComponentsDao()
-            var components: List<Component> = componentsDao.getComponentsByLibraryName(libraryName!!)
+            val components: List<Component> = componentsDao.getComponentsByLibraryName(libraryName!!)
 
             adapter.setData(components)
             adapter.itemClickedListener = { component ->
