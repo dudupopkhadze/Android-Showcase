@@ -22,6 +22,7 @@ class LibrariesActivity : AppCompatActivity() {
         setContentView(binding.root)
         this.context = this
 
+        supportActionBar?.title = "Libraries"
         val showcaseDatabase = ShowcaseDatabase.getInstance(context)
         var libraries: List<Library> = emptyList()
         GlobalScope.launch {
@@ -34,6 +35,5 @@ class LibrariesActivity : AppCompatActivity() {
             binding.recyclerViewLibraries.layoutManager = LinearLayoutManager(context)
             binding.recyclerViewLibraries.adapter = adapter
         }
-
     }
 }

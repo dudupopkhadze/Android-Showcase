@@ -46,6 +46,7 @@ class LibraryComponentsActivity : AppCompatActivity() {
         libraryName = intent.getStringExtra(LIBRARY_NAME)
 
         setupAdapter()
+
     }
 
     private fun setupAdapter() {
