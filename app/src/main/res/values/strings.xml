@@ -15,4 +15,6 @@
     <string name="single_selecting">Single Selecting</string>
     <string name="extended">Extended</string>
     <string name="finished">Finished</string>
+    <string name="title_text">Title Text</string>
+    <string name="change_title">Change Title</string>
 </resources>

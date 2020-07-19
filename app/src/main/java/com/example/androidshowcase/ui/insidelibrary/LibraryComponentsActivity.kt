@@ -10,6 +10,7 @@ import com.example.androidshowcase.R
 import com.example.androidshowcase.data.libraries
 import com.example.androidshowcase.databinding.ActivityLibraryComponentsBinding
 import com.example.androidshowcase.ui.libraries.material.button.MaterialButtonsActivity
+import com.example.androidshowcase.ui.libraries.material.textfield.MaterialTextFieldActivity
 import com.example.androidshowcase.ui.libraries.progressBars.CircularProgressBarActivity
 import com.example.androidshowcase.ui.libraries.progressBars.NumberProgressBarActivity
 import com.example.androidshowcase.ui.libraries.seekBars.DiscreteSeekBarActivity
@@ -55,6 +56,7 @@ class LibraryComponentsActivity : AppCompatActivity() {
                 "Material" -> {
                     when (component) {
                         "Buttons" -> MaterialButtonsActivity.start(this)
+                        "TextFields" -> MaterialTextFieldActivity.start(this)
                         else -> ComponentNotAddedActivity.start(this, component)
                     }
                 }
