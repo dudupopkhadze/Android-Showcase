@@ -24,10 +24,9 @@ class LibrariesActivity : AppCompatActivity() {
 
         supportActionBar?.title = "Libraries"
         val showcaseDatabase = ShowcaseDatabase.getInstance(context)
-        var libraries: List<Library> = emptyList()
         GlobalScope.launch {
             val librariesDao = showcaseDatabase.getLibrariesDao()
-            libraries = librariesDao.getAllLibraries()
+            var libraries: List<Library> = librariesDao.getAllLibraries()
             adapter = LibrariesRecyclerAdapter(libraries)
             adapter.itemClickedListener = {libraryName ->
                 LibraryComponentsActivity.start(context, libraryName)
