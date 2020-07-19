@@ -2,19 +2,18 @@ package com.example.androidshowcase.ui.insidelibrary
 
 import android.content.Context
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.MenuItem
+import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.androidshowcase.R
-import com.example.androidshowcase.data.libraries
+import com.example.androidshowcase.data.componentsToClasses
+import com.example.androidshowcase.database.ShowcaseDatabase
+import com.example.androidshowcase.database.entities.Component
 import com.example.androidshowcase.databinding.ActivityLibraryComponentsBinding
-import com.example.androidshowcase.ui.libraries.material.button.MaterialButtonsActivity
-import com.example.androidshowcase.ui.libraries.progressBars.CircularProgressBarActivity
-import com.example.androidshowcase.ui.libraries.progressBars.NumberProgressBarActivity
-import com.example.androidshowcase.ui.libraries.seekBars.DiscreteSeekBarActivity
-import com.example.androidshowcase.ui.libraries.progressBars.SmoothProgressBarActivity
 import com.example.androidshowcase.ui.notadded.ComponentNotAddedActivity
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.launch
 
 class LibraryComponentsActivity : AppCompatActivity() {
 
@@ -31,11 +30,13 @@ class LibraryComponentsActivity : AppCompatActivity() {
     private lateinit var binding: ActivityLibraryComponentsBinding
     private lateinit var adapter: ComponentsRecyclerAdapter
     private var libraryName: String? = null
+    private lateinit var context: Context
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityLibraryComponentsBinding.inflate(layoutInflater)
         setContentView(binding.root)
+        this.context = this
 
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
         supportActionBar?.title = getString(R.string.components)
@@ -43,41 +44,29 @@ class LibraryComponentsActivity : AppCompatActivity() {
         libraryName = intent.getStringExtra(LIBRARY_NAME)
 
         setupAdapter()
-        binding.recyclerViewComponents.layoutManager = LinearLayoutManager(this)
-        binding.recyclerViewComponents.adapter = adapter
+
     }
 
     private fun setupAdapter() {
         adapter = ComponentsRecyclerAdapter()
-        adapter.setData(libraries[libraryName]!!)
-        adapter.itemClickedListener = { component ->
-            when (libraryName) {
-                "Material" -> {
-                    when (component) {
-                        "Buttons" -> MaterialButtonsActivity.start(this)
-                        else -> ComponentNotAddedActivity.start(this, component)
+
+        val showcaseDatabase = ShowcaseDatabase.getInstance(this)
+        GlobalScope.launch {
+            val componentsDao = showcaseDatabase.getComponentsDao()
+            var components: List<Component> = componentsDao.getComponentsByLibraryName(libraryName!!)
+
+            adapter.setData(components)
+            adapter.itemClickedListener = { component ->
+                run {
+                    try {
+                        componentsToClasses[component]?.start(context)
+                    } catch (e: Exception) {
+                        ComponentNotAddedActivity.start(context, component)
                     }
                 }
-
-                "Progress Bar" -> {
-                    when (component) {
-                        "SmoothProgressBar" -> SmoothProgressBarActivity.start(this)
-                        "CircularProgressBar" -> CircularProgressBarActivity.start(this)
-                        "NumberProgressBar" -> NumberProgressBarActivity.start(this)
-                        else -> ComponentNotAddedActivity.start(this, component)
-                    }
-                }
-
-                "Seek Bar" -> {
-                    when (component) {
-                        "DiscreteSeekBar" -> DiscreteSeekBarActivity.start(this)
-
-                        else -> ComponentNotAddedActivity.start(this, component)
-                    }
-                }
-
-                else -> ComponentNotAddedActivity.start(this, component)
             }
+            binding.recyclerViewComponents.layoutManager = LinearLayoutManager(context)
+            binding.recyclerViewComponents.adapter = adapter
         }
     }
 

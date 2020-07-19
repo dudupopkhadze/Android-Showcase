@@ -6,12 +6,13 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.androidshowcase.R
-import com.example.androidshowcase.data.libraries
+import com.example.androidshowcase.database.entities.Library
 
-class LibrariesRecyclerAdapter : RecyclerView.Adapter<LibrariesRecyclerAdapter.ViewHolder>() {
+class LibrariesRecyclerAdapter(argLibraries : List<Library>) : RecyclerView.Adapter<LibrariesRecyclerAdapter.ViewHolder>() {
 
+    var libraries :  List<Library> = argLibraries
     var itemClickedListener: ((libraryName: String) -> Unit)? = null
-    private val librariesNames = libraries.keys.toList()
+
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val view = LayoutInflater.from(parent.context).inflate(R.layout.view_library_cell, parent, false)
@@ -19,7 +20,7 @@ class LibrariesRecyclerAdapter : RecyclerView.Adapter<LibrariesRecyclerAdapter.V
     }
 
     override fun getItemCount(): Int {
-        return librariesNames.count()
+        return libraries.count()
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
@@ -32,12 +33,12 @@ class LibrariesRecyclerAdapter : RecyclerView.Adapter<LibrariesRecyclerAdapter.V
 
         init {
             itemView.setOnClickListener {
-                itemClickedListener?.invoke(librariesNames[adapterPosition])
+                itemClickedListener?.invoke(libraries[adapterPosition].name)
             }
         }
 
         fun bindData(position: Int) {
-            libraryName.text = itemView.context.getString(R.string.library_name, librariesNames[position])
+            libraryName.text = itemView.context.getString(R.string.library_name, libraries[position].name)
         }
     }
 

@@ -9,25 +9,19 @@ import androidx.appcompat.app.AppCompatActivity
 import com.daimajia.numberprogressbar.NumberProgressBar
 import com.daimajia.numberprogressbar.OnProgressBarListener
 import com.example.androidshowcase.R
+import com.example.androidshowcase.ui.ComponentActivity
 import java.util.*
 
-class NumberProgressBarActivity : AppCompatActivity(),OnProgressBarListener {
-    private  val componentName = "NumberProgressBar"
+class NumberProgressBarActivity : AppCompatActivity(),OnProgressBarListener, ComponentActivity {
+    lateinit var bnp:NumberProgressBar;
+    lateinit var rpb:NumberProgressBar;
+    lateinit var timer:Timer
+    private  val COMPONENT_NAME = "COMPONENT_NAME"
 
-    lateinit var bnp:NumberProgressBar
-    lateinit var rpb:NumberProgressBar
-    private lateinit var timer:Timer
-
-    companion object {
-        fun start(context: Context) {
-            val intent = Intent(context, NumberProgressBarActivity::class.java)
-            context.startActivity(intent)
-        }
-    }
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_number_progress_bar)
-        supportActionBar?.title = componentName
+        supportActionBar?.title = intent.getStringExtra(COMPONENT_NAME)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
         bnp = findViewById<NumberProgressBar>(R.id.number_progress_bar)
         rpb = findViewById<NumberProgressBar>(R.id.number_progress_bar_red)
@@ -58,9 +52,15 @@ class NumberProgressBarActivity : AppCompatActivity(),OnProgressBarListener {
 
     override fun onProgressChange(current: Int, max: Int) {
         if(current == max) {
-            Toast.makeText(applicationContext, getString(R.string.finished), Toast.LENGTH_SHORT).show()
-            bnp.progress = 0
-            rpb.progress = 0
+            Toast.makeText(applicationContext, getString(R.string.finished), Toast.LENGTH_SHORT).show();
+            bnp.progress = 0;
+            rpb.progress = 0;
         }
+    }
+
+    override fun start(context: Context) {
+        val intent = Intent(context, NumberProgressBarActivity::class.java)
+        intent.putExtra(COMPONENT_NAME, componentName)
+        context.startActivity(intent)
     }
 }
