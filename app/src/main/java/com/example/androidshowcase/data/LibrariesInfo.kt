@@ -1,5 +1,12 @@
 package com.example.androidshowcase.data
 
+import com.example.androidshowcase.ui.ComponentActivity
+import com.example.androidshowcase.ui.libraries.material.button.MaterialButtonsActivity
+import com.example.androidshowcase.ui.libraries.progressBars.CircularProgressBarActivity
+import com.example.androidshowcase.ui.libraries.progressBars.NumberProgressBarActivity
+import com.example.androidshowcase.ui.libraries.progressBars.SmoothProgressBarActivity
+import com.example.androidshowcase.ui.libraries.seekBars.DiscreteSeekBarActivity
+
 val materialComponents = listOf(
         "App bars",
         "Bottom navigation",
@@ -32,8 +39,9 @@ val libraries: Map<String, List<String>> = mapOf("Material" to materialComponent
         "Progress Bar" to progressBarComponents,
         "Seek Bar" to seekBarComponents)
 
-val componentsToClasses: Map<String, String> = mapOf("SmoothProgressBar" to "com.example.androidshowcase.ui.libraries.progressBars.SmoothProgressBarActivity",
-        "CircularProgressBar" to "com.example.androidshowcase.ui.libraries.progressBars.CircularProgressBarActivity",
-        "DiscreteSeekBar" to "com.example.androidshowcase.ui.libraries.seekBars.DiscreteSeekBarActivity",
-        "NumberProgressBar" to "com.example.androidshowcase.ui.libraries.progressBars.NumberProgressBarActivity")
+val componentsToClasses: Map<String, ComponentActivity> = mapOf("Buttons" to MaterialButtonsActivity(),
+        "SmoothProgressBar" to SmoothProgressBarActivity(),
+        "CircularProgressBar" to CircularProgressBarActivity(),
+        "DiscreteSeekBar" to DiscreteSeekBarActivity(),
+        "NumberProgressBar" to NumberProgressBarActivity())
 val markings: List<String> = listOf("pin")

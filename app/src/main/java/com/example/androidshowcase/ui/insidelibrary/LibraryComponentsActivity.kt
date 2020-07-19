@@ -11,11 +11,9 @@ import com.example.androidshowcase.data.componentsToClasses
 import com.example.androidshowcase.database.ShowcaseDatabase
 import com.example.androidshowcase.database.entities.Component
 import com.example.androidshowcase.databinding.ActivityLibraryComponentsBinding
-import com.example.androidshowcase.ui.ComponentActivity
 import com.example.androidshowcase.ui.notadded.ComponentNotAddedActivity
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
-import kotlin.reflect.full.createInstance
 
 class LibraryComponentsActivity : AppCompatActivity() {
 
@@ -61,8 +59,7 @@ class LibraryComponentsActivity : AppCompatActivity() {
             adapter.itemClickedListener = { component ->
                 run {
                     try {
-                        val componentActivity = componentsToClasses[component]?.let { Class.forName(it).kotlin }
-                        ((componentActivity?.createInstance()) as ComponentActivity).start(context)
+                        componentsToClasses[component]?.start(context)
                     } catch (e: Exception) {
                         ComponentNotAddedActivity.start(context, component)
                     }
