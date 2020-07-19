@@ -9,19 +9,17 @@ import com.example.androidshowcase.R
 
 
 class SmoothProgressBarActivity : AppCompatActivity() {
+    private  val componentName = "SmoothProgressBar"
     companion object {
-        private const val COMPONENT_NAME = "COMPONENT_NAME"
-
-        fun start(context: Context,componentName:String) {
+        fun start(context: Context) {
             val intent = Intent(context, SmoothProgressBarActivity::class.java)
-            intent.putExtra(COMPONENT_NAME, componentName)
             context.startActivity(intent)
         }
     }
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_smooth_progress_bar)
-        supportActionBar?.title = intent.getStringExtra(COMPONENT_NAME)
+        supportActionBar?.title = componentName
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
     }
 
