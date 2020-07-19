@@ -6,17 +6,15 @@ import android.os.Bundle
 import android.view.MenuItem
 import androidx.appcompat.app.AppCompatActivity
 import com.example.androidshowcase.R
-import com.example.androidshowcase.ui.notadded.ComponentNotAddedActivity
+import com.example.androidshowcase.ui.ComponentActivity
 
-class CircularProgressBarActivity : AppCompatActivity() {
-    companion object {
-        private const val COMPONENT_NAME = "COMPONENT_NAME"
+class CircularProgressBarActivity : AppCompatActivity(), ComponentActivity {
+    private val COMPONENT_NAME = "COMPONENT_NAME"
 
-        fun start(context: Context,componentName:String) {
-            val intent = Intent(context, CircularProgressBarActivity::class.java)
-            intent.putExtra(COMPONENT_NAME, componentName)
-            context.startActivity(intent)
-        }
+    fun start(context: Context,componentName:String) {
+        val intent = Intent(context, CircularProgressBarActivity::class.java)
+        intent.putExtra(COMPONENT_NAME, componentName)
+        context.startActivity(intent)
     }
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -31,4 +29,11 @@ class CircularProgressBarActivity : AppCompatActivity() {
         }
         return super.onOptionsItemSelected(item)
     }
+
+    override fun start(context: Context) {
+        val intent = Intent(context, CircularProgressBarActivity::class.java)
+        intent.putExtra(COMPONENT_NAME, componentName)
+        context.startActivity(intent)
+    }
+
 }

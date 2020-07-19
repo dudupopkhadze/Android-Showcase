@@ -9,15 +9,9 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.widget.doAfterTextChanged
 import com.example.androidshowcase.R
 import com.example.androidshowcase.databinding.ActivityMaterialButtonsBinding
+import com.example.androidshowcase.ui.ComponentActivity
 
-class MaterialButtonsActivity : AppCompatActivity() {
-
-    companion object {
-        fun start(context: Context) {
-            val intent = Intent(context, MaterialButtonsActivity::class.java)
-            context.startActivity(intent)
-        }
-    }
+class MaterialButtonsActivity : AppCompatActivity(),ComponentActivity {
 
     private lateinit var binding: ActivityMaterialButtonsBinding
 
@@ -75,6 +69,11 @@ class MaterialButtonsActivity : AppCompatActivity() {
                 }
             }
         }
+    }
+
+    override fun start(context: Context) {
+        val intent = Intent(context, MaterialButtonsActivity::class.java)
+        context.startActivity(intent)
     }
 }
 
