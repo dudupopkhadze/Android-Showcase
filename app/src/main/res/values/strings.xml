@@ -17,4 +17,8 @@
     <string name="finished">Finished</string>
     <string name="title_text">Title Text</string>
     <string name="change_title">Change Title</string>
+    <string name="leading_icon">Leading Icon</string>
+    <string name="password_mode">Password Mode</string>
+    <string name="clear_text_mode">Clear Text Mode</string>
+    <string name="custom_icon_mode">Custom Icon Mode</string>
 </resources>
