@@ -9,22 +9,15 @@ import androidx.appcompat.app.AppCompatActivity
 import com.daimajia.numberprogressbar.NumberProgressBar
 import com.daimajia.numberprogressbar.OnProgressBarListener
 import com.example.androidshowcase.R
+import com.example.androidshowcase.ui.ComponentActivity
 import java.util.*
 
-class NumberProgressBarActivity : AppCompatActivity(),OnProgressBarListener {
+class NumberProgressBarActivity : AppCompatActivity(),OnProgressBarListener, ComponentActivity {
     lateinit var bnp:NumberProgressBar;
     lateinit var rpb:NumberProgressBar;
     lateinit var timer:Timer
+    private  val COMPONENT_NAME = "COMPONENT_NAME"
 
-    companion object {
-        private const val COMPONENT_NAME = "COMPONENT_NAME"
-
-        fun start(context: Context, componentName:String) {
-            val intent = Intent(context, NumberProgressBarActivity::class.java)
-            intent.putExtra(COMPONENT_NAME, componentName)
-            context.startActivity(intent)
-        }
-    }
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_number_progress_bar)
@@ -63,5 +56,11 @@ class NumberProgressBarActivity : AppCompatActivity(),OnProgressBarListener {
             bnp.progress = 0;
             rpb.progress = 0;
         }
+    }
+
+    override fun start(context: Context) {
+        val intent = Intent(context, NumberProgressBarActivity::class.java)
+        intent.putExtra(COMPONENT_NAME, componentName)
+        context.startActivity(intent)
     }
 }

@@ -5,10 +5,13 @@ import androidx.room.Delete
 import androidx.room.Insert
 import androidx.room.Query
 import com.example.androidshowcase.database.entities.Component
-import com.example.androidshowcase.database.entities.Library
 
 @Dao
 interface ComponentsDao {
+
+    @Query("select c.* from components c join libraries l on l.id = c.libraryId where l.name = :libraryName")
+    fun getComponentsByLibraryName(libraryName: String): List<Component>
+
     @Query("select * from components")
     fun getAllComponents(): List<Component>
 
