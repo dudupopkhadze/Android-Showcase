@@ -26,13 +26,17 @@ class LibrariesActivity : AppCompatActivity() {
         val showcaseDatabase = ShowcaseDatabase.getInstance(context)
         GlobalScope.launch {
             val librariesDao = showcaseDatabase.getLibrariesDao()
-            var libraries: List<Library> = librariesDao.getAllLibraries()
-            adapter = LibrariesRecyclerAdapter(libraries)
-            adapter.itemClickedListener = {libraryName ->
-                LibraryComponentsActivity.start(context, libraryName)
+            val libraries: List<Library> = librariesDao.getAllLibraries()
+
+            runOnUiThread {
+                adapter = LibrariesRecyclerAdapter(libraries)
+                adapter.itemClickedListener = {libraryName ->
+                    LibraryComponentsActivity.start(context, libraryName)
+                }
+                binding.recyclerViewLibraries.layoutManager = LinearLayoutManager(context)
+                binding.recyclerViewLibraries.adapter = adapter
             }
-            binding.recyclerViewLibraries.layoutManager = LinearLayoutManager(context)
-            binding.recyclerViewLibraries.adapter = adapter
+
         }
     }
 }
