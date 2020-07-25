@@ -51,9 +51,8 @@ class ComponentsRecyclerAdapter(argMarkings: List<ComponentMarking>, argMarkingT
             val componentMarking = markings.find { marking -> marking.componentId == componentsList[position].id }
             val markingType = markingTypes.find { markingType -> markingType.id == componentMarking?.markingId }
             checkBox.tag = componentsList[position].name
-            if (markingType?.literalValue.equals("pin")) {
-                checkBox.isChecked = true
-            }
+            checkBox.setOnCheckedChangeListener(null)
+            checkBox.isChecked = markingType?.literalValue.equals("pin")
             checkBox.setOnCheckedChangeListener(onCheckedListener)
             componentName.text = componentsList[position].name
         }

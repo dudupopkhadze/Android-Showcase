@@ -48,9 +48,8 @@ class LibrariesRecyclerAdapter(argLibraries: List<Library>, argMarkings: List<Li
             val libraryMarking = markings.find { marking -> marking.libraryId == libraries[position].id }
             val markingType = markingTypes.find { markingType -> markingType.id == libraryMarking?.markingId }
             checkBox.tag = libraries[position].name
-            if (markingType?.literalValue.equals("pin")) {
-                checkBox.isChecked = true
-            }
+            checkBox.setOnCheckedChangeListener(null)
+            checkBox.isChecked = markingType?.literalValue.equals("pin")
             checkBox.setOnCheckedChangeListener(onCheckedListener)
             libraryName.text = itemView.context.getString(R.string.library_name, libraries[position].name)
         }

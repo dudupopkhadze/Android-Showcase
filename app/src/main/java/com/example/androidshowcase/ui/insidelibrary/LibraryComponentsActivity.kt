@@ -74,7 +74,11 @@ class LibraryComponentsActivity : AppCompatActivity() {
                         val componentMarking = componentMarkingsDao.getComponentMarkingByComponentId(component.id)
                         componentMarkingsDao.deleteComponentMarking(componentMarking)
                     }
-                    adapter.markings = componentMarkingsDao.getAllComponentMarkings()
+                    button.tag = null
+                    finish()
+                    overridePendingTransition( 0, 0)
+                    startActivity(intent)
+                    overridePendingTransition( 0, 0)
                 }
             }
 

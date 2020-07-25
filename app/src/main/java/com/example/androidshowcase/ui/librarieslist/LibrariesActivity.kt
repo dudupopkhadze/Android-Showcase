@@ -53,7 +53,11 @@ class LibrariesActivity : AppCompatActivity() {
                         val libraryMarking = libraryMarkingDao.getLibraryMarkingByLibraryId(library.id)
                         libraryMarkingDao.deleteLibraryMarking(libraryMarking)
                     }
-                    adapter.markings = libraryMarkingDao.getAllLibraryMarkings()
+                    button.tag = null
+                    finish()
+                    overridePendingTransition( 0, 0)
+                    startActivity(intent)
+                    overridePendingTransition( 0, 0)
                 }
             }
             binding.recyclerViewLibraries.layoutManager = LinearLayoutManager(context)
