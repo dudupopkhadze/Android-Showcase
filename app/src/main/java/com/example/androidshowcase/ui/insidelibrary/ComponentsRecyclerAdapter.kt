@@ -3,6 +3,7 @@ package com.example.androidshowcase.ui.insidelibrary
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.CheckBox
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.androidshowcase.R
@@ -32,6 +33,7 @@ class ComponentsRecyclerAdapter : RecyclerView.Adapter<ComponentsRecyclerAdapter
     inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
 
         private val componentName = itemView.findViewById<TextView>(R.id.library_name_text)
+        private val checkBox = itemView.findViewById<CheckBox>(R.id.checkBox)
 
         init {
             itemView.setOnClickListener {

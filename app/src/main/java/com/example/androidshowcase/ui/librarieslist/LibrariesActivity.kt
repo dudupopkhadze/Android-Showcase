@@ -6,6 +6,8 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.androidshowcase.database.ShowcaseDatabase
 import com.example.androidshowcase.database.entities.Library
+import com.example.androidshowcase.database.entities.LibraryMarking
+import com.example.androidshowcase.database.entities.MarkingType
 import com.example.androidshowcase.databinding.ActivityLibrariesBinding
 import com.example.androidshowcase.ui.insidelibrary.LibraryComponentsActivity
 import kotlinx.coroutines.GlobalScope
@@ -26,10 +28,33 @@ class LibrariesActivity : AppCompatActivity() {
         val showcaseDatabase = ShowcaseDatabase.getInstance(context)
         GlobalScope.launch {
             val librariesDao = showcaseDatabase.getLibrariesDao()
-            var libraries: List<Library> = librariesDao.getAllLibraries()
-            adapter = LibrariesRecyclerAdapter(libraries)
-            adapter.itemClickedListener = {libraryName ->
+            val libraryMarkingDao = showcaseDatabase.getLibraryMarkingsDao()
+            val markingTypesDao = showcaseDatabase.getMarkingTypesDao()
+
+            val pinnedLibraries: List<Library> = librariesDao.getAllPinnedLibraries()
+            val notPinnedLibraries: List<Library> = librariesDao.getAllNotPinnedLibraries()
+            val libraries : ArrayList<Library> = arrayListOf()
+            pinnedLibraries.forEach { library -> libraries.add(library) }
+            notPinnedLibraries.forEach { library -> libraries.add(library) }
+            val libraryMarkings: List<LibraryMarking> = libraryMarkingDao.getAllLibraryMarkings()
+            val markingTypes: List<MarkingType> = markingTypesDao.getAllMarkingTypes()
+            adapter = LibrariesRecyclerAdapter(libraries, libraryMarkings, markingTypes)
+            adapter.itemClickedListener = { libraryName ->
                 LibraryComponentsActivity.start(context, libraryName)
+            }
+            adapter.onCheckedListener = { button, isChecked ->
+                GlobalScope.launch {
+                    val libraryName = button.tag as String
+                    val library = librariesDao.getLibraryByName(libraryName)
+                    val pinMarking = markingTypesDao.getMarkingTypeByName("pin")
+                    if (isChecked) {
+                        libraryMarkingDao.insertLibraryMarking(LibraryMarking(0, library.id, pinMarking.id))
+                    } else {
+                        val libraryMarking = libraryMarkingDao.getAllLibraryMarkingByLibraryId(library.id)
+                        libraryMarkingDao.deleteLibraryMarking(libraryMarking)
+                    }
+                    adapter.markings = libraryMarkingDao.getAllLibraryMarkings()
+                }
             }
             binding.recyclerViewLibraries.layoutManager = LinearLayoutManager(context)
             binding.recyclerViewLibraries.adapter = adapter
