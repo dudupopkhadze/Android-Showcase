@@ -16,12 +16,12 @@ class NumberProgressBarActivity : AppCompatActivity(),OnProgressBarListener, Com
     lateinit var bnp:NumberProgressBar;
     lateinit var rpb:NumberProgressBar;
     lateinit var timer:Timer
-    private  val COMPONENT_NAME = "COMPONENT_NAME"
+    private  val componentName = "NumberProgressBar"
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_number_progress_bar)
-        supportActionBar?.title = intent.getStringExtra(COMPONENT_NAME)
+        supportActionBar?.title = componentName
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
         bnp = findViewById<NumberProgressBar>(R.id.number_progress_bar)
         rpb = findViewById<NumberProgressBar>(R.id.number_progress_bar_red)
@@ -60,7 +60,6 @@ class NumberProgressBarActivity : AppCompatActivity(),OnProgressBarListener, Com
 
     override fun start(context: Context) {
         val intent = Intent(context, NumberProgressBarActivity::class.java)
-        intent.putExtra(COMPONENT_NAME, componentName)
         context.startActivity(intent)
     }
 }

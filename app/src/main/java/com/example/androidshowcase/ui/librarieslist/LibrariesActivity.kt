@@ -38,30 +38,32 @@ class LibrariesActivity : AppCompatActivity() {
             notPinnedLibraries.forEach { library -> libraries.add(library) }
             val libraryMarkings: List<LibraryMarking> = libraryMarkingDao.getAllLibraryMarkings()
             val markingTypes: List<MarkingType> = markingTypesDao.getAllMarkingTypes()
-            adapter = LibrariesRecyclerAdapter(libraries, libraryMarkings, markingTypes)
-            adapter.itemClickedListener = { libraryName ->
-                LibraryComponentsActivity.start(context, libraryName)
-            }
-            adapter.onCheckedListener = { button, isChecked ->
-                GlobalScope.launch {
-                    val libraryName = button.tag as String
-                    val library = librariesDao.getLibraryByName(libraryName)
-                    val pinMarking = markingTypesDao.getMarkingTypeByName("pin")
-                    if (isChecked) {
-                        libraryMarkingDao.insertLibraryMarking(LibraryMarking(0, library.id, pinMarking.id))
-                    } else {
-                        val libraryMarking = libraryMarkingDao.getLibraryMarkingByLibraryId(library.id)
-                        libraryMarkingDao.deleteLibraryMarking(libraryMarking)
-                    }
-                    button.tag = null
-                    finish()
-                    overridePendingTransition( 0, 0)
-                    startActivity(intent)
-                    overridePendingTransition( 0, 0)
+            runOnUiThread {
+                adapter = LibrariesRecyclerAdapter(libraries, libraryMarkings, markingTypes)
+                adapter.itemClickedListener = { libraryName ->
+                    LibraryComponentsActivity.start(context, libraryName)
                 }
+                adapter.onCheckedListener = { button, isChecked ->
+                    GlobalScope.launch {
+                        val libraryName = button.tag as String
+                        val library = librariesDao.getLibraryByName(libraryName)
+                        val pinMarking = markingTypesDao.getMarkingTypeByName("pin")
+                        if (isChecked) {
+                            libraryMarkingDao.insertLibraryMarking(LibraryMarking(0, library.id, pinMarking.id))
+                        } else {
+                            val libraryMarking = libraryMarkingDao.getLibraryMarkingByLibraryId(library.id)
+                            libraryMarkingDao.deleteLibraryMarking(libraryMarking)
+                        }
+                        button.tag = null
+                        finish()
+                        overridePendingTransition(0, 0)
+                        startActivity(intent)
+                        overridePendingTransition(0, 0)
+                    }
+                }
+                binding.recyclerViewLibraries.layoutManager = LinearLayoutManager(context)
+                binding.recyclerViewLibraries.adapter = adapter
             }
-            binding.recyclerViewLibraries.layoutManager = LinearLayoutManager(context)
-            binding.recyclerViewLibraries.adapter = adapter
         }
     }
 }
