@@ -2,7 +2,11 @@
 
 #### Chekout All Awsome Android UI Libraries/Components in one App.
 
+
 `Android-Showcase` is an  open source project, it's purpose is to  help designers and developers understand how different android ui libraries/components work and choose them acording to their needs.
+
+### Here is The List of [Libraries](https://github.com/dudupopkhadze/Android-Showcase/blob/development/libraries.md) we use.
+
 
 ### Development
 
