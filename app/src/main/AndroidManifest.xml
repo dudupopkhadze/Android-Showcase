@@ -11,7 +11,8 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="AllowBackup">
-        <activity android:name=".ui.libraries.material.textfield.MaterialTextFieldActivity"></activity>
+        <activity android:name=".ui.libraries.navigations.NavigationTabBarActivity"></activity>
+        <activity android:name=".ui.libraries.material.textfield.MaterialTextFieldActivity" />
         <activity android:name=".ui.libraries.progressBars.NumberProgressBarActivity" />
         <activity android:name=".ui.libraries.material.button.MaterialButtonsActivity" />
         <activity android:name=".ui.libraries.progressBars.CircularProgressBarActivity" />
