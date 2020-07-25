@@ -12,10 +12,10 @@ interface LibrariesDao {
     @Query("select * from libraries")
     fun getAllLibraries(): List<Library>
 
-    @Query("select * from libraries l join library_markings lm on lm.libraryId = l.id, marking_types mt on mt.id = lm.markingId and mt.literalValue = 'pin' order by l.name asc")
+    @Query("select l.* from libraries l join library_markings lm on lm.libraryId = l.id, marking_types mt on mt.id = lm.markingId and mt.literalValue = 'pin' order by l.name asc")
     fun getAllPinnedLibraries(): List<Library>
 
-    @Query("select * from libraries l where not exists (select * from library_markings lm where lm.libraryId = l.id ) order by l.name asc")
+    @Query("select l.* from libraries l where not exists (select * from library_markings lm where lm.libraryId = l.id ) order by l.name asc")
     fun getAllNotPinnedLibraries(): List<Library>
 
     @Query("select * from libraries where id = :libraryId limit 1")
