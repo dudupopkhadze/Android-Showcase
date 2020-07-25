@@ -9,7 +9,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.androidshowcase.R
 import com.example.androidshowcase.data.componentsToClasses
 import com.example.androidshowcase.database.ShowcaseDatabase
-import com.example.androidshowcase.database.entities.Component
+import com.example.androidshowcase.database.entities.*
 import com.example.androidshowcase.databinding.ActivityLibraryComponentsBinding
 import com.example.androidshowcase.ui.notadded.ComponentNotAddedActivity
 import kotlinx.coroutines.GlobalScope
@@ -48,18 +48,41 @@ class LibraryComponentsActivity : AppCompatActivity() {
     }
 
     private fun setupAdapter() {
-        adapter = ComponentsRecyclerAdapter()
-
         val showcaseDatabase = ShowcaseDatabase.getInstance(this)
         GlobalScope.launch {
             val componentsDao = showcaseDatabase.getComponentsDao()
-            var components: List<Component> = componentsDao.getComponentsByLibraryName(libraryName!!)
+            val componentMarkingsDao = showcaseDatabase.getComponentMarkingsDao()
+            val markingTypesDao = showcaseDatabase.getMarkingTypesDao()
+
+            var pinnedComponents: List<Component> = componentsDao.getAllPinnedComponentsByLibraryName(libraryName!!)
+            var notPinnedComponents: List<Component> = componentsDao.getAllNotPinnedComponentsByLibraryName(libraryName!!)
+            val components : ArrayList<Component> = arrayListOf()
+            pinnedComponents.forEach { component -> components.add(component) }
+            notPinnedComponents.forEach { component -> components.add(component) }
+            var markings: List<ComponentMarking> = componentMarkingsDao.getAllComponentMarkings()
+            var markingTypes: List<MarkingType> = markingTypesDao.getAllMarkingTypes()
+            adapter = ComponentsRecyclerAdapter(markings, markingTypes)
+
+            adapter.onCheckedListener = { button, isChecked ->
+                GlobalScope.launch {
+                    val componentName = button.tag as String
+                    val component = componentsDao.getComponentByName(componentName)
+                    val pinMarking = markingTypesDao.getMarkingTypeByName("pin")
+                    if (isChecked) {
+                        componentMarkingsDao.insertComponentMarking(ComponentMarking(0, component.id, pinMarking.id))
+                    } else {
+                        val componentMarking = componentMarkingsDao.getComponentMarkingByComponentId(component.id)
+                        componentMarkingsDao.deleteComponentMarking(componentMarking)
+                    }
+                    adapter.markings = componentMarkingsDao.getAllComponentMarkings()
+                }
+            }
 
             adapter.setData(components)
             adapter.itemClickedListener = { component ->
                 run {
                     try {
-                        if(!componentsToClasses.containsKey(component)){
+                        if (!componentsToClasses.containsKey(component)) {
                             throw Exception("Component Not Added")
                         }
                         componentsToClasses[component]?.start(context)

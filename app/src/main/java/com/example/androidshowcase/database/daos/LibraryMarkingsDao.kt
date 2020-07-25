@@ -13,14 +13,8 @@ interface LibraryMarkingsDao {
     @Query("select * from library_markings")
     fun getAllLibraryMarkings(): List<LibraryMarking>
 
-    @Query("select lm.* from library_markings lm join libraries l on l.name = :libraryName and  l.id = lm.libraryId where lm.markingId = 1")
-    fun getPositiveLibraryMarkings(libraryName: String): List<LibraryMarking>
-
-    @Query("select lm.* from library_markings lm join libraries l on l.name = :libraryName and l.id = lm.libraryId where lm.markingId = 2")
-    fun getNegativeLibraryMarkings(libraryName: String): List<LibraryMarking>
-
     @Query("select * from library_markings where libraryId = :libraryId limit 1")
-    fun getAllLibraryMarkingByLibraryId(libraryId: Long): LibraryMarking
+    fun getLibraryMarkingByLibraryId(libraryId: Long): LibraryMarking
 
     @Query("delete from library_markings")
     fun deleteAllValues()

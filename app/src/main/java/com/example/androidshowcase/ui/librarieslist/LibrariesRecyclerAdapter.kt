@@ -38,6 +38,12 @@ class LibrariesRecyclerAdapter(argLibraries: List<Library>, argMarkings: List<Li
         private val libraryName = itemView.findViewById<TextView>(R.id.library_name_text)
         private val checkBox = itemView.findViewById<CheckBox>(R.id.checkBox)
 
+        init {
+            itemView.setOnClickListener {
+                itemClickedListener?.invoke(libraries[adapterPosition].name)
+            }
+        }
+
         fun bindData(position: Int) {
             val libraryMarking = markings.find { marking -> marking.libraryId == libraries[position].id }
             val markingType = markingTypes.find { markingType -> markingType.id == libraryMarking?.markingId }
@@ -46,9 +52,6 @@ class LibrariesRecyclerAdapter(argLibraries: List<Library>, argMarkings: List<Li
                 checkBox.isChecked = true
             }
             checkBox.setOnCheckedChangeListener(onCheckedListener)
-            itemView.setOnClickListener {
-                itemClickedListener?.invoke(libraries[adapterPosition].name)
-            }
             libraryName.text = itemView.context.getString(R.string.library_name, libraries[position].name)
         }
     }

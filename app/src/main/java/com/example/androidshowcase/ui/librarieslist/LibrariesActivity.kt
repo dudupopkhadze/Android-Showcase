@@ -50,7 +50,7 @@ class LibrariesActivity : AppCompatActivity() {
                     if (isChecked) {
                         libraryMarkingDao.insertLibraryMarking(LibraryMarking(0, library.id, pinMarking.id))
                     } else {
-                        val libraryMarking = libraryMarkingDao.getAllLibraryMarkingByLibraryId(library.id)
+                        val libraryMarking = libraryMarkingDao.getLibraryMarkingByLibraryId(library.id)
                         libraryMarkingDao.deleteLibraryMarking(libraryMarking)
                     }
                     adapter.markings = libraryMarkingDao.getAllLibraryMarkings()

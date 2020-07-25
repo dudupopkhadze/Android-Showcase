@@ -4,15 +4,21 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.CheckBox
+import android.widget.CompoundButton
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.androidshowcase.R
 import com.example.androidshowcase.database.entities.Component
+import com.example.androidshowcase.database.entities.ComponentMarking
+import com.example.androidshowcase.database.entities.MarkingType
 
-class ComponentsRecyclerAdapter : RecyclerView.Adapter<ComponentsRecyclerAdapter.ViewHolder>() {
+class ComponentsRecyclerAdapter(argMarkings: List<ComponentMarking>, argMarkingTypes: List<MarkingType>) : RecyclerView.Adapter<ComponentsRecyclerAdapter.ViewHolder>() {
     private var componentsList = listOf<Component>()
     var itemClickedListener: ((component: String) -> Unit)? = null
-
+    var markingTypes: List<MarkingType> = argMarkingTypes
+    var markings: List<ComponentMarking> = argMarkings
+    var onCheckedListener: ((button: CompoundButton, isChecked: Boolean) -> Unit)? = null
+    
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val view = LayoutInflater.from(parent.context).inflate(R.layout.view_library_cell, parent, false)
         return ViewHolder(view)
@@ -42,6 +48,13 @@ class ComponentsRecyclerAdapter : RecyclerView.Adapter<ComponentsRecyclerAdapter
         }
 
         fun bindData(position: Int) {
+            val componentMarking = markings.find { marking -> marking.componentId == componentsList[position].id }
+            val markingType = markingTypes.find { markingType -> markingType.id == componentMarking?.markingId }
+            checkBox.tag = componentsList[position].name
+            if (markingType?.literalValue.equals("pin")) {
+                checkBox.isChecked = true
+            }
+            checkBox.setOnCheckedChangeListener(onCheckedListener)
             componentName.text = componentsList[position].name
         }
     }
