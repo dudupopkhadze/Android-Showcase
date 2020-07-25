@@ -41,10 +41,65 @@ val navigationComponents = listOf(
         "NavigationTabBar"
 )
 
+val buttonComponents = listOf(
+        ""
+)
+
+val listComponents = listOf(
+        ""
+)
+
+val colorsComponents = listOf(
+        ""
+)
+
+val toolBarComponents = listOf(
+        ""
+)
+
+val inputComponents = listOf(
+        ""
+)
+
+val labelComponents = listOf(
+        ""
+)
+
+val menuComponents = listOf(
+        ""
+)
+
+val appbarComponents = listOf(
+        ""
+)
+
+val viewPagerComponents = listOf(
+        ""
+)
+
+val textFieldComponents = listOf(
+        ""
+)
+
+val sheetComponents = listOf(
+        ""
+)
+
 val libraries: Map<String, List<String>> = mapOf("Material" to materialComponents,
         "Progress Bar" to progressBarComponents,
         "Seek Bar" to seekBarComponents,
-        "Navigation" to navigationComponents)
+        "Navigation" to navigationComponents,
+        "Button" to buttonComponents,
+        "Label" to labelComponents,
+        "List" to listComponents,
+        "Colors" to colorsComponents,
+        "Tool bar" to toolBarComponents,
+        "Input" to inputComponents,
+        "Menu" to menuComponents,
+        "App bar" to appbarComponents,
+        "View Pager" to viewPagerComponents,
+        "Text Field" to textFieldComponents,
+        "Sheet" to sheetComponents)
 
 val componentsToClasses: Map<String, ComponentActivity> = mapOf("Buttons" to MaterialButtonsActivity(),
         "TextFields" to MaterialTextFieldActivity(),
