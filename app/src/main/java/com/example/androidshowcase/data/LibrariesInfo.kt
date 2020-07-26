@@ -7,6 +7,7 @@ import com.example.androidshowcase.ui.libraries.material.button.MaterialButtonsA
 import com.example.androidshowcase.ui.libraries.material.textfield.MaterialTextFieldActivity
 import com.example.androidshowcase.ui.libraries.navigations.NavigationTabBarActivity
 import com.example.androidshowcase.ui.libraries.progressBars.*
+import com.example.androidshowcase.ui.libraries.labels.shimmerActivity
 import com.example.androidshowcase.ui.libraries.seekBars.DiscreteSeekBarActivity
 import com.example.androidshowcase.ui.libraries.seekBars.SeekBarCompatActivity
 
@@ -55,7 +56,9 @@ val toolBarComponents = listOf<String>()
 
 val inputComponents = listOf<String>()
 
-val labelComponents = listOf<String>()
+val labelComponents = listOf<String>(
+        "shimmer"
+)
 
 val menuComponents = listOf<String>()
 
@@ -99,6 +102,7 @@ val componentsToClasses: Map<String, ComponentActivity> = mapOf("Buttons" to Mat
         "RoundCornerProgressBar" to RoundCornerProgressActivity(),
         "CircleImageView" to CircleImageViewActivity(),
         "ShapeImageView" to ShapeImageviewActivity(),
-        "WaveProgress" to WaveProgressActivity())
+        "WaveProgress" to WaveProgressActivity()),
+        "shimmer" to shimmerActivity()
 
 val markings: List<String> = listOf("pin")
