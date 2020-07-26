@@ -12,11 +12,11 @@ import com.example.androidshowcase.database.entities.Component
 import com.example.androidshowcase.database.entities.ComponentMarking
 import com.example.androidshowcase.database.entities.MarkingType
 
-class ComponentsRecyclerAdapter(argMarkings: List<ComponentMarking>, argMarkingTypes: List<MarkingType>) : RecyclerView.Adapter<ComponentsRecyclerAdapter.ViewHolder>() {
+class ComponentsRecyclerAdapter : RecyclerView.Adapter<ComponentsRecyclerAdapter.ViewHolder>() {
     private var componentsList = listOf<Component>()
     var itemClickedListener: ((component: String) -> Unit)? = null
-    var markingTypes: List<MarkingType> = argMarkingTypes
-    var markings: List<ComponentMarking> = argMarkings
+    var markingTypes: List<MarkingType> = listOf()
+    var markings: List<ComponentMarking> = listOf()
     var onCheckedListener: ((button: CompoundButton, isChecked: Boolean) -> Unit)? = null
     
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
@@ -28,8 +28,11 @@ class ComponentsRecyclerAdapter(argMarkings: List<ComponentMarking>, argMarkingT
         return componentsList.count()
     }
 
-    fun setData(componentsList: List<Component>) {
+    fun setData(componentsList: List<Component>, argMarkings: List<ComponentMarking>, argMarkingTypes: List<MarkingType>) {
         this.componentsList = componentsList
+        this.markingTypes = argMarkingTypes
+        this.markings = argMarkings
+        notifyDataSetChanged()
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {

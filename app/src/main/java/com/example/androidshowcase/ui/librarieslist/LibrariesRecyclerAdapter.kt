@@ -12,17 +12,24 @@ import com.example.androidshowcase.database.entities.Library
 import com.example.androidshowcase.database.entities.LibraryMarking
 import com.example.androidshowcase.database.entities.MarkingType
 
-class LibrariesRecyclerAdapter(argLibraries: List<Library>, argMarkings: List<LibraryMarking>, argMarkingTypes: List<MarkingType>) : RecyclerView.Adapter<LibrariesRecyclerAdapter.ViewHolder>() {
+class LibrariesRecyclerAdapter : RecyclerView.Adapter<LibrariesRecyclerAdapter.ViewHolder>() {
 
-    var markingTypes: List<MarkingType> = argMarkingTypes
-    var markings: List<LibraryMarking> = argMarkings
-    var libraries: List<Library> = argLibraries
+    var markingTypes: List<MarkingType> = listOf()
+    var markings: List<LibraryMarking> = listOf()
+    var libraries: List<Library> = listOf()
     var itemClickedListener: ((libraryName: String) -> Unit)? = null
     var onCheckedListener: ((button: CompoundButton, isChecked: Boolean) -> Unit)? = null
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val view = LayoutInflater.from(parent.context).inflate(R.layout.view_library_cell, parent, false)
         return ViewHolder(view)
+    }
+
+    fun setData(argLibraries: List<Library>, argMarkings: List<LibraryMarking>, argMarkingTypes: List<MarkingType>) {
+        libraries = argLibraries
+        markings = argMarkings
+        markingTypes = argMarkingTypes
+        notifyDataSetChanged()
     }
 
     override fun getItemCount(): Int {

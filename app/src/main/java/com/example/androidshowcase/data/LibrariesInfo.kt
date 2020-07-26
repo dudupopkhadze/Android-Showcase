@@ -45,49 +45,27 @@ val navigationComponents = listOf(
         "NavigationTabBar"
 )
 
-val buttonComponents = listOf(
-        ""
-)
+val buttonComponents = listOf<String>()
 
-val listComponents = listOf(
-        ""
-)
+val listComponents = listOf<String>()
 
-val colorsComponents = listOf(
-        ""
-)
+val colorsComponents = listOf<String>()
 
-val toolBarComponents = listOf(
-        ""
-)
+val toolBarComponents = listOf<String>()
 
-val inputComponents = listOf(
-        ""
-)
+val inputComponents = listOf<String>()
 
-val labelComponents = listOf(
-        ""
-)
+val labelComponents = listOf<String>()
 
-val menuComponents = listOf(
-        ""
-)
+val menuComponents = listOf<String>()
 
-val appbarComponents = listOf(
-        ""
-)
+val appbarComponents = listOf<String>()
 
-val viewPagerComponents = listOf(
-        ""
-)
+val viewPagerComponents = listOf<String>()
 
-val textFieldComponents = listOf(
-        ""
-)
+val textFieldComponents = listOf<String>()
 
-val sheetComponents = listOf(
-        ""
-)
+val sheetComponents = listOf<String>()
 
 val libraries: Map<String, List<String>> = mapOf("Material" to materialComponents,
         "Progress Bar" to progressBarComponents,
