@@ -1,6 +1,7 @@
 package com.example.androidshowcase.data
 
 import com.example.androidshowcase.ui.ComponentActivity
+import com.example.androidshowcase.ui.libraries.imageView.CircleImageViewActivity
 import com.example.androidshowcase.ui.libraries.material.button.MaterialButtonsActivity
 import com.example.androidshowcase.ui.libraries.material.textfield.MaterialTextFieldActivity
 import com.example.androidshowcase.ui.libraries.navigations.NavigationTabBarActivity
@@ -87,6 +88,10 @@ val sheetComponents = listOf(
         ""
 )
 
+val imageViewComponents = listOf(
+        "CircleImageView"
+)
+
 val libraries: Map<String, List<String>> = mapOf("Material" to materialComponents,
         "Progress Bar" to progressBarComponents,
         "Seek Bar" to seekBarComponents,
@@ -101,7 +106,8 @@ val libraries: Map<String, List<String>> = mapOf("Material" to materialComponent
         "App bar" to appbarComponents,
         "View Pager" to viewPagerComponents,
         "Text Field" to textFieldComponents,
-        "Sheet" to sheetComponents)
+        "Sheet" to sheetComponents,
+        "Image View" to imageViewComponents)
 
 val componentsToClasses: Map<String, ComponentActivity> = mapOf("Buttons" to MaterialButtonsActivity(),
         "TextFields" to MaterialTextFieldActivity(),
@@ -110,5 +116,7 @@ val componentsToClasses: Map<String, ComponentActivity> = mapOf("Buttons" to Mat
         "DiscreteSeekBar" to DiscreteSeekBarActivity(),
         "NumberProgressBar" to NumberProgressBarActivity(),
         "NavigationTabBar" to NavigationTabBarActivity(),
-        "SeekBarCompat" to SeekBarCompatActivity())
+        "SeekBarCompat" to SeekBarCompatActivity(),
+        "CircleImageView" to CircleImageViewActivity())
+
 val markings: List<String> = listOf("pin")
