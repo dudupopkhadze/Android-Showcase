@@ -6,6 +6,7 @@ import com.example.androidshowcase.ui.libraries.material.textfield.MaterialTextF
 import com.example.androidshowcase.ui.libraries.navigations.NavigationTabBarActivity
 import com.example.androidshowcase.ui.libraries.progressBars.CircularProgressBarActivity
 import com.example.androidshowcase.ui.libraries.progressBars.NumberProgressBarActivity
+import com.example.androidshowcase.ui.libraries.progressBars.RoundCornerProgressActivity
 import com.example.androidshowcase.ui.libraries.progressBars.SmoothProgressBarActivity
 import com.example.androidshowcase.ui.libraries.seekBars.DiscreteSeekBarActivity
 import com.example.androidshowcase.ui.libraries.seekBars.SeekBarCompatActivity
@@ -31,7 +32,8 @@ val materialComponents = listOf(
 val progressBarComponents = listOf(
         "SmoothProgressBar",
         "CircularProgressBar",
-        "NumberProgressBar"
+        "NumberProgressBar",
+        "RoundCornerProgressBar"
 )
 
 val seekBarComponents = listOf(
@@ -110,5 +112,6 @@ val componentsToClasses: Map<String, ComponentActivity> = mapOf("Buttons" to Mat
         "DiscreteSeekBar" to DiscreteSeekBarActivity(),
         "NumberProgressBar" to NumberProgressBarActivity(),
         "NavigationTabBar" to NavigationTabBarActivity(),
-        "SeekBarCompat" to SeekBarCompatActivity())
+        "SeekBarCompat" to SeekBarCompatActivity(),
+        "RoundCornerProgressBar" to RoundCornerProgressActivity())
 val markings: List<String> = listOf("pin")
