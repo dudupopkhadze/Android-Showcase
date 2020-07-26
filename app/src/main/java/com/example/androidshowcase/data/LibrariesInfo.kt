@@ -2,6 +2,7 @@ package com.example.androidshowcase.data
 
 import com.example.androidshowcase.ui.ComponentActivity
 import com.example.androidshowcase.ui.libraries.imageView.CircleImageViewActivity
+import com.example.androidshowcase.ui.libraries.imageView.ShapeImageviewActivity
 import com.example.androidshowcase.ui.libraries.material.button.MaterialButtonsActivity
 import com.example.androidshowcase.ui.libraries.material.textfield.MaterialTextFieldActivity
 import com.example.androidshowcase.ui.libraries.navigations.NavigationTabBarActivity
@@ -91,7 +92,8 @@ val sheetComponents = listOf(
 )
 
 val imageviewComponents = listOf(
-        "CircleImageView"
+        "CircleImageView",
+        "ShapeImageView"
 )
 
 val libraries: Map<String, List<String>> = mapOf("Material" to materialComponents,
@@ -119,6 +121,7 @@ val componentsToClasses: Map<String, ComponentActivity> = mapOf("Buttons" to Mat
         "NumberProgressBar" to NumberProgressBarActivity(),
         "SeekBarCompat" to SeekBarCompatActivity(),
         "RoundCornerProgressBar" to RoundCornerProgressActivity(),
-        "CircleImageView" to CircleImageViewActivity())
+        "CircleImageView" to CircleImageViewActivity(),
+        "ShapeImageView" to ShapeImageviewActivity())
 
 val markings: List<String> = listOf("pin")
