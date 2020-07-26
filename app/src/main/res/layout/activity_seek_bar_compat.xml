@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.libraries.seekBars.SeekBarCompatActivity">
+
+    <app.minimize.com.seek_bar_compat.SeekBarCompat
+        android:id="@+id/materialSeekBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:maxHeight="300sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:progressBackgroundColor="#000"
+        app:progressColor="#AFF123"
+        app:thumbAlpha="1.0"
+        app:thumbColor="#FF4444" />
+
+    <app.minimize.com.seek_bar_compat.SeekBarCompat
+        android:id="@+id/materialSeekBar2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:maxHeight="300sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/materialSeekBar"
+        app:progressBackgroundColor="#FF5722"
+        app:progressColor="#E91E63"
+        app:thumbAlpha="1.0"
+        app:thumbColor="#00BCD4" />
+
+    <app.minimize.com.seek_bar_compat.SeekBarCompat
+        android:id="@+id/materialSeekBar3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:maxHeight="300sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/materialSeekBar2"
+        app:progressBackgroundColor="#CDDC39"
+        app:progressColor="#3F51B5"
+        app:thumbAlpha="1.0"
+        app:thumbColor="#F44336" />
+
+    <app.minimize.com.seek_bar_compat.SeekBarCompat
+        android:id="@+id/materialSeekBar4"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:maxHeight="300sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/materialSeekBar3"
+        app:progressBackgroundColor="#FF5722"
+        app:progressColor="#FF9800"
+        app:thumbAlpha="1.0"
+        app:thumbColor="#CDDC39" />
+
+    <app.minimize.com.seek_bar_compat.SeekBarCompat
+        android:id="@+id/materialSeekBar5"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:maxHeight="300sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/materialSeekBar4"
+        app:progressBackgroundColor="#673AB7"
+        app:progressColor="#08000000"
+        app:thumbAlpha="1.0"
+        app:thumbColor="#94B34E" />
+
+    <app.minimize.com.seek_bar_compat.SeekBarCompat
+        android:id="@+id/materialSeekBar6"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:maxHeight="300sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/materialSeekBar5"
+        app:progressBackgroundColor="#009688"
+        app:progressColor="#6FE91E63"
+        app:thumbAlpha="1.0"
+        app:thumbColor="#673AB7" />
+
+    <app.minimize.com.seek_bar_compat.SeekBarCompat
+        android:id="@+id/materialSeekBar7"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:maxHeight="300sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/materialSeekBar6"
+        app:progressBackgroundColor="#76FF03"
+        app:progressColor="#6F000000"
+        app:thumbAlpha="1.0"
+        app:thumbColor="#1E88E5" />
+
+    <app.minimize.com.seek_bar_compat.SeekBarCompat
+        android:id="@+id/materialSeekBar8"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:maxHeight="300sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/materialSeekBar7"
+        app:progressBackgroundColor="#000000"
+        app:progressColor="#6F4A0A83"
+        app:thumbAlpha="1.0"
+        app:thumbColor="#FDD835" />
+
+    <app.minimize.com.seek_bar_compat.SeekBarCompat
+        android:id="@+id/materialSeekBar9"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:maxHeight="300sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/materialSeekBar8"
+        app:progressBackgroundColor="#1E88E5"
+        app:progressColor="#FDD835"
+        app:thumbAlpha="1.0"
+        app:thumbColor="#1E88E5" />
+
+    <app.minimize.com.seek_bar_compat.SeekBarCompat
+        android:id="@+id/materialSeekBar10"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:maxHeight="300sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/materialSeekBar9"
+        app:progressBackgroundColor="#000000"
+        app:progressColor="#FFFFFF"
+        app:thumbAlpha="1.0"
+        app:thumbColor="#000000" />
+
+    <app.minimize.com.seek_bar_compat.SeekBarCompat
+        android:id="@+id/materialSeekBar11"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:maxHeight="300sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/materialSeekBar10"
+        app:progressBackgroundColor="#000000"
+        app:progressColor="#000000"
+        app:thumbAlpha="1.0"
+        app:thumbColor="#FFFFFF" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

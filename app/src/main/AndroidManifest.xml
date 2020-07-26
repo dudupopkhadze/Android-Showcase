@@ -11,7 +11,9 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="AllowBackup">
-        <activity android:name=".ui.libraries.navigations.NavigationTabBarActivity"></activity>
+        <activity android:name=".ui.libraries.progressBars.RoundCornerProgressActivity"/>
+        <activity android:name=".ui.libraries.seekBars.SeekBarCompatActivity"></activity>
+        <activity android:name=".ui.libraries.navigations.NavigationTabBarActivity" />
         <activity android:name=".ui.libraries.material.textfield.MaterialTextFieldActivity" />
         <activity android:name=".ui.libraries.progressBars.NumberProgressBarActivity" />
         <activity android:name=".ui.libraries.material.button.MaterialButtonsActivity" />

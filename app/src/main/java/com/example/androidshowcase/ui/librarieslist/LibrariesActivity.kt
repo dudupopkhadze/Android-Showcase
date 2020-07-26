@@ -1,9 +1,12 @@
 package com.example.androidshowcase.ui.librarieslist
 
 import android.content.Context
+import android.graphics.Color
+import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.androidshowcase.R
 import com.example.androidshowcase.database.ShowcaseDatabase
 import com.example.androidshowcase.database.entities.Library
 import com.example.androidshowcase.database.entities.LibraryMarking
@@ -24,7 +27,7 @@ class LibrariesActivity : AppCompatActivity() {
         setContentView(binding.root)
         this.context = this
 
-        supportActionBar?.title = "Libraries"
+        supportActionBar?.hide()
         val showcaseDatabase = ShowcaseDatabase.getInstance(context)
         GlobalScope.launch {
             val librariesDao = showcaseDatabase.getLibrariesDao()

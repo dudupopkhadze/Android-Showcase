@@ -1,25 +1,27 @@
-package com.example.androidshowcase.ui.libraries.seekBars
+package com.example.androidshowcase.ui.libraries.imageView
 
 import android.content.Context
 import android.content.Intent
+import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.MenuItem
-import androidx.appcompat.app.AppCompatActivity
 import com.example.androidshowcase.R
 import com.example.androidshowcase.ui.ComponentActivity
 
-class DiscreteSeekBarActivity : AppCompatActivity(), ComponentActivity {
-    private val componentName = "DiscreteSeekBar"
+class CircleImageViewActivity : AppCompatActivity(), ComponentActivity {
+
+    private val componentName = "CircleImageView"
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_discrete_seek_bar)
+        setContentView(R.layout.activity_circle_image_view)
+
         supportActionBar?.title = componentName
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
     }
 
     override fun start(context: Context) {
-        val intent = Intent(context, DiscreteSeekBarActivity::class.java)
+        val intent = Intent(context, CircleImageViewActivity::class.java)
         context.startActivity(intent)
     }
 
