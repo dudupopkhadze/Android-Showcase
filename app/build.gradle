@@ -65,4 +65,5 @@ dependencies {
     implementation 'de.hdodenhof:circleimageview:3.1.0'
     implementation 'com.github.siyamed:android-shape-imageview:0.9.+@aar'
     implementation 'com.race604.waveloading:library:1.1.1'
+    implementation 'com.romainpiel.shimmer:library:1.4.0@aar'
 }
