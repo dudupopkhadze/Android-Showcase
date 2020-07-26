@@ -62,4 +62,5 @@ dependencies {
     implementation 'devlight.io:navigationtabbar:1.2.5'
     implementation 'com.akexorcist:round-corner-progress-bar:2.1.1'
     implementation 'com.minimize.library:seekbar-compat:0.3.0'
+    implementation 'de.hdodenhof:circleimageview:3.1.0'
 }
