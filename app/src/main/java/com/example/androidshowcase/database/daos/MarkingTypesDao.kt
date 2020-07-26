@@ -17,6 +17,9 @@ interface MarkingTypesDao {
     @Query("select 1 from marking_types where literalValue = :markingLiteralValue limit 1")
     fun markingExists(markingLiteralValue: String): Boolean
 
+    @Query("select * from marking_types where literalValue = :literalValue limit 1")
+    fun getMarkingTypeByName(literalValue: String): MarkingType
+
     @Insert
     fun insertMarkingType(MarkingType: MarkingType)
 

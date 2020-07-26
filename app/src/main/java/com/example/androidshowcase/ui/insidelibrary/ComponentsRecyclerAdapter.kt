@@ -3,15 +3,22 @@ package com.example.androidshowcase.ui.insidelibrary
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.CheckBox
+import android.widget.CompoundButton
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.androidshowcase.R
 import com.example.androidshowcase.database.entities.Component
+import com.example.androidshowcase.database.entities.ComponentMarking
+import com.example.androidshowcase.database.entities.MarkingType
 
 class ComponentsRecyclerAdapter : RecyclerView.Adapter<ComponentsRecyclerAdapter.ViewHolder>() {
     private var componentsList = listOf<Component>()
     var itemClickedListener: ((component: String) -> Unit)? = null
-
+    var markingTypes: List<MarkingType> = listOf()
+    var markings: List<ComponentMarking> = listOf()
+    var onCheckedListener: ((button: CompoundButton, isChecked: Boolean) -> Unit)? = null
+    
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val view = LayoutInflater.from(parent.context).inflate(R.layout.view_library_cell, parent, false)
         return ViewHolder(view)
@@ -21,8 +28,11 @@ class ComponentsRecyclerAdapter : RecyclerView.Adapter<ComponentsRecyclerAdapter
         return componentsList.count()
     }
 
-    fun setData(componentsList: List<Component>) {
+    fun setData(componentsList: List<Component>, argMarkings: List<ComponentMarking>, argMarkingTypes: List<MarkingType>) {
         this.componentsList = componentsList
+        this.markingTypes = argMarkingTypes
+        this.markings = argMarkings
+        notifyDataSetChanged()
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
@@ -32,6 +42,7 @@ class ComponentsRecyclerAdapter : RecyclerView.Adapter<ComponentsRecyclerAdapter
     inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
 
         private val componentName = itemView.findViewById<TextView>(R.id.library_name_text)
+        private val checkBox = itemView.findViewById<CheckBox>(R.id.checkBox)
 
         init {
             itemView.setOnClickListener {
@@ -40,6 +51,12 @@ class ComponentsRecyclerAdapter : RecyclerView.Adapter<ComponentsRecyclerAdapter
         }
 
         fun bindData(position: Int) {
+            val componentMarking = markings.find { marking -> marking.componentId == componentsList[position].id }
+            val markingType = markingTypes.find { markingType -> markingType.id == componentMarking?.markingId }
+            checkBox.tag = componentsList[position].name
+            checkBox.setOnCheckedChangeListener(null)
+            checkBox.isChecked = markingType?.literalValue.equals("pin")
+            checkBox.setOnCheckedChangeListener(onCheckedListener)
             componentName.text = componentsList[position].name
         }
     }
