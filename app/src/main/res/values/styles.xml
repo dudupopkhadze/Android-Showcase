@@ -1,8 +1,8 @@
 <resources>
     <!-- Base application theme. -->
     <style name="AppTheme" parent="Theme.MaterialComponents.Light.DarkActionBar">
-        <item name="colorPrimary">#409788</item>
-        <item name="colorPrimaryDark">#225C52</item>
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
         <item name="spbStyle">@style/GNowProgressBar</item>
         <item name="cpbStyle">@style/CircularThemeProgressBar</item>
@@ -29,5 +29,60 @@
         <item name="cpb_sweep_speed">@string/cpb_default_sweep_speed</item>
         <item name="cpb_rotation_speed">@string/cpb_default_rotation_speed</item>
     </style>
+
+    <style name="Text" />
+
+    <style name="Text.Description">
+        <item name="android:textAppearance">@style/TextAppearance.MaterialComponents.Body1</item>
+        <item name="android:lineSpacingExtra">6dp</item>
+    </style>
+
+    <style name="Text.Title">
+        <item name="android:textAppearance">@style/TextAppearance.MaterialComponents.Subtitle1</item>
+        <item name="android:lineSpacingExtra">6dp</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="SampleCard">
+        <item name="android:background">@drawable/shape_sample_card_background</item>
+        <item name="android:paddingStart">@dimen/padding</item>
+        <item name="android:paddingEnd">@dimen/padding</item>
+        <item name="android:paddingTop">@dimen/padding_large</item>
+        <item name="android:paddingBottom">@dimen/padding_large</item>
+        <item name="android:layout_margin">@dimen/margin</item>
+    </style>
+
+    <style name="SampleProgress">
+        <item name="android:layout_width">@dimen/content_width</item>
+        <item name="android:layout_height">30dp</item>
+    </style>
+
+    <style name="SampleProgress.Thin">
+        <item name="android:layout_width">@dimen/content_width</item>
+        <item name="android:layout_height">20dp</item>
+    </style>
+
+    <style name="SampleProgress.Fat">
+        <item name="android:layout_width">@dimen/content_width</item>
+        <item name="android:layout_height">50dp</item>
+    </style>
+
+    <style name="SampleProgress.Icon">
+        <item name="android:layout_width">@dimen/content_width</item>
+        <item name="android:layout_height">wrap_content</item>
+    </style>
+
+    <style name="SampleProgress.Indeterminate">
+        <item name="android:layout_width">@dimen/content_width</item>
+        <item name="android:layout_height">10dp</item>
+    </style>
+
+    <style name="SampleButton" parent="@style/Widget.MaterialComponents.Button">
+        <item name="android:textSize">@dimen/button_text_size</item>
+        <item name="android:layout_width">@dimen/button_size</item>
+        <item name="android:layout_height">@dimen/button_size</item>
+        <item name="android:padding">@dimen/padding_small</item>
+    </style>
+
 
 </resources>
