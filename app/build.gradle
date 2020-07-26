@@ -64,4 +64,5 @@ dependencies {
     implementation 'com.minimize.library:seekbar-compat:0.3.0'
     implementation 'de.hdodenhof:circleimageview:3.1.0'
     implementation 'com.github.siyamed:android-shape-imageview:0.9.+@aar'
+    implementation 'com.race604.waveloading:library:1.1.1'
 }

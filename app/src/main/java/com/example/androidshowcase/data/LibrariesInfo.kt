@@ -6,10 +6,7 @@ import com.example.androidshowcase.ui.libraries.imageView.ShapeImageviewActivity
 import com.example.androidshowcase.ui.libraries.material.button.MaterialButtonsActivity
 import com.example.androidshowcase.ui.libraries.material.textfield.MaterialTextFieldActivity
 import com.example.androidshowcase.ui.libraries.navigations.NavigationTabBarActivity
-import com.example.androidshowcase.ui.libraries.progressBars.CircularProgressBarActivity
-import com.example.androidshowcase.ui.libraries.progressBars.NumberProgressBarActivity
-import com.example.androidshowcase.ui.libraries.progressBars.RoundCornerProgressActivity
-import com.example.androidshowcase.ui.libraries.progressBars.SmoothProgressBarActivity
+import com.example.androidshowcase.ui.libraries.progressBars.*
 import com.example.androidshowcase.ui.libraries.seekBars.DiscreteSeekBarActivity
 import com.example.androidshowcase.ui.libraries.seekBars.SeekBarCompatActivity
 
@@ -35,7 +32,8 @@ val progressBarComponents = listOf(
         "SmoothProgressBar",
         "CircularProgressBar",
         "NumberProgressBar",
-        "RoundCornerProgressBar"
+        "RoundCornerProgressBar",
+        "WaveProgress"
 )
 
 val seekBarComponents = listOf(
@@ -75,7 +73,7 @@ val imageviewComponents = listOf(
 )
 
 val libraries: Map<String, List<String>> = mapOf("Material" to materialComponents,
-        "Progress Bar" to progressBarComponents,
+        "Progress" to progressBarComponents,
         "Seek Bar" to seekBarComponents,
         "Navigation" to navigationComponents,
         "Image View" to imageviewComponents,
@@ -100,6 +98,7 @@ val componentsToClasses: Map<String, ComponentActivity> = mapOf("Buttons" to Mat
         "SeekBarCompat" to SeekBarCompatActivity(),
         "RoundCornerProgressBar" to RoundCornerProgressActivity(),
         "CircleImageView" to CircleImageViewActivity(),
-        "ShapeImageView" to ShapeImageviewActivity())
+        "ShapeImageView" to ShapeImageviewActivity(),
+        "WaveProgress" to WaveProgressActivity())
 
 val markings: List<String> = listOf("pin")
