@@ -102,7 +102,7 @@ val componentsToClasses: Map<String, ComponentActivity> = mapOf("Buttons" to Mat
         "RoundCornerProgressBar" to RoundCornerProgressActivity(),
         "CircleImageView" to CircleImageViewActivity(),
         "ShapeImageView" to ShapeImageviewActivity(),
-        "WaveProgress" to WaveProgressActivity()),
-        "shimmer" to shimmerActivity()
+        "WaveProgress" to WaveProgressActivity(),
+        "shimmer" to shimmerActivity())
 
 val markings: List<String> = listOf("pin")
